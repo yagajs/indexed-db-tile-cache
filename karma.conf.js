@@ -34,8 +34,16 @@ module.exports = function(config) {
 
         // optionally, configure the reporter
         coverageReporter: {
-            type : 'html',
-            dir : 'coverage/'
+            reporters: [
+                {
+                    type : 'html',
+                    dir : 'coverage/'
+                },
+                {
+                    type : 'lcov',
+                    dir : 'coverage/'
+                }
+            ]
         },
         // test results reporter to use
         // possible values: 'dots', 'progress'

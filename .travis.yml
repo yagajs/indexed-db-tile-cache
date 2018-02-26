@@ -18,7 +18,7 @@ script:
   - npm run travis-test
 
 after_success:
-  - "cat coverage/lcov.info | ./node_modules/.bin/coveralls"
+  - "cat coverage/Firefox*/lcov.info | ./node_modules/.bin/coveralls"
 
 branches:
   only:
