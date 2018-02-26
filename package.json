@@ -44,8 +44,8 @@
   "author": "Arne Schubert <atd.schubert@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "@types/request": "^2.0.0",
+    "@types/request": "^2.47.0",
     "@yaga/tile-utils": "^1.0.0",
-    "request": "^2.81.0"
+    "request": "^2.83.0"
   }
 }
