@@ -1,5 +1,8 @@
 # YAGA IndexedDB Tile Cache
 
+[![Build Status](https://travis-ci.org/yagajs/indexed-db-tile-cache.svg?branch=develop)](https://travis-ci.org/yagajs/indexed-db-tile-cache)
+[![Coverage Status](https://coveralls.io/repos/github/yagajs/indexed-db-tile-cache/badge.svg?branch=develop)](https://coveralls.io/github/yagajs/indexed-db-tile-cache?branch=develop)
+
 A tile storage and cache that uses the browsers IndexedDB to store the spatial map tiles.
 
 ## Key features
