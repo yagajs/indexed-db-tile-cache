@@ -1,0 +1,2 @@
+window.yaga = window.yaga || {};
+window.yaga.tileCache = require("./lib/");
