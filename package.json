@@ -5,6 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "tslint ts/*.ts && tsc && istanbul instrument lib -o test-tmp && browserify test/index.js -o test/bundle.js && karma start karma.conf.js && rm -Rf test-tmp test/bundle.js",
+    "travis-test": "tslint ts/*.ts && tsc && istanbul instrument lib -o test-tmp && browserify test/index.js -o test/bundle.js && karma start karma.conf.js --browsers --browsers Firefox && rm -Rf test-tmp test/bundle.js",
     "browser-test": "tsc; cp -R lib test-tmp && browserify test/index.js -o browser-test/bundle.js && rm -Rf test-tmp",
     "dist": "set -x && tsc && browserify dist.in -o dist.js && uglifyjs dist.js -o dist.min.js",
     "doc": "typedoc --out ./typedoc/ --exclude ts/tile-layer.directive.spec.ts --mode file ts/"
@@ -38,6 +39,7 @@
     "karma": "^1.7.1",
     "karma-chrome-launcher": "^2.2.0",
     "karma-coverage": "^1.1.1",
+    "karma-firefox-launcher": "^1.1.0",
     "karma-mocha": "^1.3.0",
     "karma-safari-launcher": "^1.0.0",
     "mocha": "^3.5.3",
