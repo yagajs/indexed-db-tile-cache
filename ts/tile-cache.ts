@@ -200,6 +200,7 @@ export class IndexedDbTileCache extends EventEmitter {
         return this.options.tileUrl
             .split(/{x}/).join(tileCoordinates.x.toString())
             .split(/{y}/).join(tileCoordinates.y.toString())
+            .split(/{-y}/).join(tileCoordinates.y.toString())
             .split(/{z}/).join(tileCoordinates.z.toString());
     }
 
@@ -217,8 +218,8 @@ export class IndexedDbTileCache extends EventEmitter {
     /**
      * Receive a tile as an Uint8Array / Buffer
      */
-    public getTileAsBuffer(tileCoordinates: ITileCoordinates): Promise<Buffer> {
-        return this.getTileEntry(tileCoordinates, true).then((tileEntry: IIndexedDbTileCacheEntry) => {
+    public getTileAsBuffer(tileCoordinates: ITileCoordinates, autoCache: boolean = true): Promise<Buffer> {
+        return this.getTileEntry(tileCoordinates, autoCache).then((tileEntry: IIndexedDbTileCacheEntry) => {
             return Promise.resolve(tileEntry.data);
         });
     }
@@ -226,8 +227,8 @@ export class IndexedDbTileCache extends EventEmitter {
     /**
      * Receives a tile as its base64 encoded data url.
      */
-    public getTileAsDataUrl(tileCoordinates: ITileCoordinates): Promise<string> {
-        return this.getTileEntry(tileCoordinates, true).then((tileEntry: IIndexedDbTileCacheEntry) => {
+    public getTileAsDataUrl(tileCoordinates: ITileCoordinates, autoCache: boolean = true): Promise<string> {
+        return this.getTileEntry(tileCoordinates, autoCache).then((tileEntry: IIndexedDbTileCacheEntry) => {
             return Promise.resolve("data:" + tileEntry.contentType + ";base64," + tileEntry.data.toString("base64"));
         });
     }
@@ -287,9 +288,9 @@ export class IndexedDbTileCache extends EventEmitter {
      *
      * The returned number in the promise is equal to the duration of the operation in milliseconds.
      */
-    public seedBBox(bbox: IBBox, maxZ: number, minZ: number = 0): Promise<number> {
+    public seedBBox(bbox: IBBox, maxZ: number, minZ: number = 0, tms: boolean = false): Promise<number> {
         const start = Date.now();
-        const list: ITileCoordinates[] = getListOfTilesInBBox(bbox, maxZ, minZ);
+        const list: ITileCoordinates[] = getListOfTilesInBBox(bbox, maxZ, minZ, tms);
         const total: number = list.length;
         return new Promise((resolve, reject) => {
             const fn = () => {
