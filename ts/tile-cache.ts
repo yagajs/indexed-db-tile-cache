@@ -218,8 +218,8 @@ export class IndexedDbTileCache extends EventEmitter {
     /**
      * Receive a tile as an Uint8Array / Buffer
      */
-    public getTileAsBuffer(tileCoordinates: ITileCoordinates): Promise<Buffer> {
-        return this.getTileEntry(tileCoordinates, true).then((tileEntry: IIndexedDbTileCacheEntry) => {
+    public getTileAsBuffer(tileCoordinates: ITileCoordinates, autoCache: boolean = true): Promise<Buffer> {
+        return this.getTileEntry(tileCoordinates, autoCache).then((tileEntry: IIndexedDbTileCacheEntry) => {
             return Promise.resolve(tileEntry.data);
         });
     }
@@ -227,8 +227,8 @@ export class IndexedDbTileCache extends EventEmitter {
     /**
      * Receives a tile as its base64 encoded data url.
      */
-    public getTileAsDataUrl(tileCoordinates: ITileCoordinates): Promise<string> {
-        return this.getTileEntry(tileCoordinates, true).then((tileEntry: IIndexedDbTileCacheEntry) => {
+    public getTileAsDataUrl(tileCoordinates: ITileCoordinates, autoCache: boolean = true): Promise<string> {
+        return this.getTileEntry(tileCoordinates, autoCache).then((tileEntry: IIndexedDbTileCacheEntry) => {
             return Promise.resolve("data:" + tileEntry.contentType + ";base64," + tileEntry.data.toString("base64"));
         });
     }
