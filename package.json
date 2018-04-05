@@ -52,7 +52,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/request": "^2.47.0",
-    "@yaga/tile-utils": "^1.0.0",
+    "@yaga/tile-utils": "git+https://github.com/DroneMapp/tile-utils.git",
     "request": "^2.83.0"
   }
 }

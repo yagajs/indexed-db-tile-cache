@@ -200,6 +200,7 @@ export class IndexedDbTileCache extends EventEmitter {
         return this.options.tileUrl
             .split(/{x}/).join(tileCoordinates.x.toString())
             .split(/{y}/).join(tileCoordinates.y.toString())
+            .split(/{-y}/).join(tileCoordinates.y.toString())
             .split(/{z}/).join(tileCoordinates.z.toString());
     }
 
@@ -287,9 +288,9 @@ export class IndexedDbTileCache extends EventEmitter {
      *
      * The returned number in the promise is equal to the duration of the operation in milliseconds.
      */
-    public seedBBox(bbox: IBBox, maxZ: number, minZ: number = 0): Promise<number> {
+    public seedBBox(bbox: IBBox, maxZ: number, minZ: number = 0, tms: boolean = false): Promise<number> {
         const start = Date.now();
-        const list: ITileCoordinates[] = getListOfTilesInBBox(bbox, maxZ, minZ);
+        const list: ITileCoordinates[] = getListOfTilesInBBox(bbox, maxZ, minZ, tms);
         const total: number = list.length;
         return new Promise((resolve, reject) => {
             const fn = () => {
