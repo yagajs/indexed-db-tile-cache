@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/yagajs/indexed-db-tile-cache.svg?branch=develop)](https://travis-ci.org/yagajs/indexed-db-tile-cache)
 [![Coverage Status](https://coveralls.io/repos/github/yagajs/indexed-db-tile-cache/badge.svg?branch=develop)](https://coveralls.io/github/yagajs/indexed-db-tile-cache?branch=develop)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fyagajs%2Findexed-db-tile-cache.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fyagajs%2Findexed-db-tile-cache?ref=badge_shield)
 
 A tile storage and cache that uses the browsers IndexedDB to store the spatial map tiles.
 
@@ -166,3 +167,5 @@ fulfill the software tests.
 
 This library is under [ISC License](https://spdx.org/licenses/ISC.html) © by Arne Schubert and the YAGA Development
 Team.
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fyagajs%2Findexed-db-tile-cache.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fyagajs%2Findexed-db-tile-cache?ref=badge_large)
