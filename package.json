@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yagajs/indexed-db-tile-cache.git"
+    "url": "git+https://github.com/srinathnallamalli/indexed-db-tile-cache.git"
   },
   "directories": {
     "lib": "lib",
