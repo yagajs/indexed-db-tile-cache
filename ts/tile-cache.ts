@@ -16,6 +16,8 @@ import {
     DEFAULT_TILE_URL_SUB_DOMAINS,
 } from "./consts";
 
+declare var Promise: any;
+
 /**
  * Interface for the options parameter of the constructor of the IndexedDbTileCache class
  */
