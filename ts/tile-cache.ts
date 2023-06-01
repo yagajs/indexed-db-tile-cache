@@ -197,6 +197,9 @@ export class IndexedDbTileCache extends EventEmitter {
      * It keeps the sub-domain placeholder to provide unique database entries while seeding from multiple sub-domains.
      */
     public createInternalTileUrl(tileCoordinates: ITileCoordinates): string {
+        if (this.options.objectStoreName === "WMTS") {
+            return this.options.tileUrl;
+        }
         return this.options.tileUrl
             .split(/{x}/).join(tileCoordinates.x.toString())
             .split(/{y}/).join(tileCoordinates.y.toString())
